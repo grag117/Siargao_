@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Feel and Discover Siargao — explore beautiful lagoons, tropical islands, Cloud 9, and unforgettable island adventures.">
+
+  <title>Feel and Discover Siargao | Explore Paradise</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --teal: #087f8c;
+      --dark: #063b43;
+      --aqua: #c8f5eb;
+      --gold: #ffbd59;
+      --cream: #fffaf1;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #18363a;
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 3px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    nav {
+      max-width: 1250px;
+      margin: auto;
+      padding: 12px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dark);
+      font-weight: bold;
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .brand img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--teal);
+      letter-spacing: 3px;
+      font-size: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .menu-btn {
+      display: none;
+      background: var(--dark);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* BUTTONS */
+
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 30px;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: bold;
+      transition: 0.3s;
+      border: 2px solid var(--gold);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #ffd48b;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3, 43, 49, 0.88),
+          rgba(3, 43, 49, 0.35)
+        ),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Cloud_9_Boardwalk%2C_Siargao.jpg")
+        center / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 1250px;
+      width: 100%;
+      margin: auto;
+      padding: 80px 6%;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.08;
+      margin: 22px 0;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: #91eee0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #f0fffc;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 85px 7%;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      color: var(--dark);
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .section-heading p {
+      color: #617779;
+    }
+
+    .label {
+      color: var(--teal);
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: var(--cream);
+    }
+
+    .about-container {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about h2 {
+      color: var(--dark);
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.2;
+      margin: 14px 0 20px;
+    }
+
+    .about p {
+      color: #617779;
+      margin-bottom: 18px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 15px 35px rgba(0, 50, 55, 0.13);
+    }
+
+    /* DESTINATIONS */
+
+    .destinations {
+      max-width: 1350px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 40, 45, 0.09);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 35px rgba(0, 40, 45, 0.14);
+    }
+
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e2f8f2;
+      color: var(--teal);
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #617779;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .card a {
+      color: var(--teal);
+      font-weight: bold;
+    }
+
+    /* WHY CHOOSE US */
+
+    .features {
+      background: var(--dark);
+      color: white;
+    }
+
+    .features .section-heading h2 {
+      color: white;
+    }
+
+    .features .section-heading p {
+      color: #c7dfdc;
+    }
+
+    .feature-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 30px 22px;
+      border: 1px solid rgba(255,255,255,0.17);
+      border-radius: 18px;
+    }
+
+    .feature .icon {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #c7dfdc;
+      font-size: 14px;
+    }
+
+    /* CALL TO ACTION */
+
+    .cta {
+      text-align: center;
+      background:
+        linear-gradient(rgba(5, 60, 65, 0.87), rgba(5, 60, 65, 0.87)),
+        url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=85")
+        center / cover;
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: #e2f5f1;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #032e34;
+      color: white;
+      padding: 50px 7% 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .footer-brand img {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+      background: white;
+      border-radius: 50%;
+    }
+
+    footer p,
+    footer a {
+      color: #c2dcd8;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #ffffff25;
+      margin-top: 35px;
+      padding-top: 20px;
+      color: #a9c7c3;
+      font-size: 12px;
+    }
+
+    /* MOBILE RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .nav-book {
+        display: none;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .brand img {
+        width: 53px;
+        height: 53px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        padding: 12px 0;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links a {
+        font-size: 15px;
+        padding: 8px 0;
+      }
+
+      .hero {
+        min-height: 590px;
+      }
+
+      .hero-content {
+        padding: 65px 7%;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-image img {
+        height: 300px;
+      }
+
+      .cards,
+      .feature-grid,
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .card img {
+        height: 230px;
+      }
+
+      .footer-container {
+        gap: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav>
+      <a href="index.html" class="brand">
+        <img src="assets/logo-siargao.png"
+             alt="Feel and Discover Siargao Logo">
+        <span>
+          FEEL &amp; DISCOVER
+          <small>SIARGAO · PHILIPPINES</small>
+        </span>
+      </a>
+
+      <button class="menu-btn"
+              onclick="toggleMenu()"
+              aria-label="Toggle navigation"
+              aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="packages.html">Packages</a>
+        <a href="booking.html">Book a Trip</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <a href="booking.html" class="btn nav-book">
+        Plan Your Trip ↗
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">
+        Discover the magic of the island
+      </div>
+
+      <h1>
+        Feel the Waves.<br>
+        <span>Discover Siargao.</span>
+      </h1>
+
+      <p>
+        Escape to crystal-clear lagoons, explore tropical islands,
+        experience the famous surf culture, and discover the natural
+        beauty of Siargao, Philippines.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="packages.html" class="btn">
+          Explore Our Tours →
+        </a>
+
+        <a href="about.html" class="btn btn-outline">
+          Discover Our Story
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="about">
+    <div class="about-container">
+
+      <div>
+        <div class="label">Welcome to Siargao</div>
+
+        <h2>
+          More Than a Destination.
+          A Feeling You'll Never Forget.
+        </h2>
+
+        <p>
+          Siargao is a tropical paradise known for its beautiful
+          coastlines, coconut palm forests, surfing destinations,
+          and welcoming island communities.
+        </p>
+
+        <p>
+          Feel and Discover Siargao invites you to experience the
+          island through memorable tours, breathtaking landscapes,
+          and opportunities to appreciate the local culture.
+        </p>
+
+        <a href="about.html" class="btn">
+          Learn More About Us →
+        </a>
+      </div>
+
+      <div class="about-image">
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Cloud_9_Boardwalk%2C_Siargao.jpg"
+          alt="Cloud 9 boardwalk in General Luna, Siargao"
+          loading="lazy">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DESTINATIONS -->
+  <section>
+    <div class="section-heading">
+      <div class="label">Explore the Island</div>
+      <h2>Discover Siargao's Wonders</h2>
+      <p>
+        Find your next adventure among the island's famous surf spots,
+        emerald lagoons, natural rock pools, and tropical shores.
+      </p>
+    </div>
+
+    <div class="destinations">
+      <div class="cards">
+
+        <!-- CLOUD 9 -->
+        <article class="card">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Cloud_9_Boardwalk%2C_Siargao.jpg"
+            alt="Cloud 9 boardwalk and surfing destination"
+            loading="lazy">
+
+          <div class="card-content">
+            <span class="tag">SURF & SUNSET</span>
+            <h3>Cloud 9</h3>
+            <p>
+              Visit Siargao's famous surfing area, enjoy the ocean
+              views, and experience the island's relaxed surf culture.
+            </p>
+            <a href="packages.html">
+              Explore Experience →
+            </a>
+          </div>
+        </article>
+
+        <!-- SUGBA LAGOON -->
+        <article class="card">
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/SUGBA_LAGOON_%28MAY_2019%29.jpg"
+            alt="Sugba Lagoon surrounded by tropical greenery"
+            loading="lazy">
+
+          <div class="card-content">
+            <span class="tag">NATURE ESCAPE</span>
+            <h3>Sugba Lagoon</h3>
+            <p>
+              Admire the turquoise waters and lush surroundings
+              of this beautiful lagoon in Del Carmen.
+            </p>
+            <a href="packages.html">
+              Explore Experience →
+            </a>
+          </div>
+        </article>
+
+        <!-- MAGPUPUNGKO -->
+        <article class="card">
+          <img
+  src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80"
+  alt="Beautiful ocean and coastal scenery"
+  style="width:100%; height:300px; object-fit:cover;">
+
+          <div class="card-content">
+            <span class="tag">COASTAL ADVENTURE</span>
+            <h3>Magpupungko Rock Pools</h3>
+            <p>
+              Discover natural tidal pools and striking rock
+              formations when the tides and sea conditions allow.
+            </p>
+            <a href="packages.html">
+              Explore Experience →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="features">
+    <div class="section-heading">
+      <div class="eyebrow">The island experience</div>
+      <h2>Why Discover Siargao With Us?</h2>
+      <p>
+        Thoughtfully planned experiences designed around discovery,
+        comfort, and appreciation for the island.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <div class="icon">🌴</div>
+        <h3>Beautiful Destinations</h3>
+        <p>
+          Discover memorable coastal views, tropical landscapes,
+          and iconic Siargao attractions.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🧭</div>
+        <h3>Planned Adventures</h3>
+        <p>
+          Explore sample itineraries that help you organize
+          your island getaway.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">🌿</div>
+        <h3>Responsible Travel</h3>
+        <p>
+          Respect local communities, protect nature, and help
+          keep the island beautiful for future visitors.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="cta">
+    <div class="eyebrow">Your island adventure awaits</div>
+
+    <h2>Ready to Feel and Discover Siargao?</h2>
+
+    <p>
+      Start planning your tropical escape. Explore our sample
+      tour packages and send a reservation inquiry for your
+      preferred island experience.
+    </p>
+
+    <a href="packages.html" class="btn">
+      View Tour Packages →
+    </a>
+
+    <a href="booking.html"
+       class="btn btn-outline"
+       style="margin-left: 8px;">
+      Book Your Trip
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logo-siargao.png"
+               alt="Feel and Discover Siargao logo">
+          <span>
+            Feel &amp; Discover Siargao
+          </span>
+        </div>
+
+        <p style="margin-top: 18px;">
+          Experience the beauty of Siargao through island
+          adventures, tropical destinations, and unforgettable
+          travel memories.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="packages.html">Tour Packages</a></p>
+        <p><a href="booking.html">Reservations</a></p>
+      </div>
+
+      <div>
+        <h3>Destination</h3>
+        <p>General Luna</p>
+        <p>Siargao Island</p>
+        <p>Surigao del Norte</p>
+        <p>Philippines</p>
+
+        <p style="margin-top: 12px;">
+          <a href="contact.html">Contact & FAQs →</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Feel and Discover Siargao.
+      Tourism and Travel Website Project.
+      <br>
+      Sample tour information and prices must be confirmed
+      before actual bookings.
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const links = document.getElementById("navLinks");
+      const button = document.querySelector(".menu-btn");
+      const isOpen = links.classList.toggle("show");
+
+      button.setAttribute("aria-expanded", isOpen);
+      button.textContent = isOpen ? "✕" : "☰";
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+        document.querySelector(".menu-btn").textContent = "☰";
+        document.querySelector(".menu-btn").setAttribute(
+          "aria-expanded", "false"
+        );
+      });
+    });
+  </script>
+
+</body>
+</html>
